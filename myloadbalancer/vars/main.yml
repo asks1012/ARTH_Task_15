@@ -1,0 +1,5 @@
+---
+# vars file for myloadbalancer
+
+LB_port: 1234
+Server_Port: 80

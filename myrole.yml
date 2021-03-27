@@ -1,0 +1,7 @@
+- hosts: Servers
+  roles:
+  - myapache
+
+- hosts: LB
+  roles:
+  - myloadbalancer

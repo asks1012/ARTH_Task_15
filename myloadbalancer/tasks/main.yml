@@ -1,0 +1,26 @@
+---
+# tasks file for myloadbalancer
+
+- name: "Installing Haproxy"
+  package:
+    name: haproxy
+    state: present
+- name: "Setting SELinux to Permissive"
+  selinux:
+    state: permissive
+    policy: targeted
+- name: "Enabling port no. {{ LB_port }} in firewall"
+  firewalld:
+    port: "{{ LB_port }}/tcp"
+    state: enabled
+    permanent: yes
+- name: "Starting and enabling haproxy"
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
+- name: "Updating HAProxy conf. file"
+  template:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+  notify: "restart_haproxy"

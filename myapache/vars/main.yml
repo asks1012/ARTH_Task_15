@@ -1,0 +1,4 @@
+---
+# vars file for myapache
+
+Server_Port: 80

@@ -1,0 +1,5 @@
+[LB]
+192.168.43.131 ansible_user=root ansible_ssh_pass=122020
+
+[Servers]
+192.168.43.71 ansible_user=root ansible_ssh_pass=122020
